@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mervalyn Tomas: Writing Portfolio</title>
+<title>Services: Mervalyn Tomas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -28,15 +28,28 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
-
   .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
 
-  /* ---------- HERO ---------- */
-  header.hero{
-    padding:88px 0 56px;
+  /* ---------- NAV ---------- */
+  nav.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:26px 0;
     border-bottom:1px solid var(--rule);
-    position:relative;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
   }
+  nav.top a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    border-bottom:1px dotted var(--mono);
+  }
+  nav.top a:hover{color:var(--ink);border-color:var(--ink);}
+  nav.top .brand{font-weight:600;color:var(--ink);border:none;}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:64px 0 48px;border-bottom:1px solid var(--rule);}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     font-size:12.5px;
@@ -45,326 +58,525 @@
     color:var(--paddy-deep);
     margin:0 0 18px;
   }
-  h1.name{
+  h1.headline{
     font-family:'Fraunces', serif;
     font-weight:500;
-    font-size:clamp(40px, 6vw, 66px);
-    line-height:1.02;
-    margin:0 0 20px;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.08;
+    margin:0 0 18px;
     letter-spacing:-0.01em;
-  }
-  h1.name em{
-    font-style:italic;
-    font-weight:400;
-    color:var(--paddy);
+    max-width:14ch;
   }
   .hero-sub{
-    font-size:18px;
-    max-width:560px;
+    font-size:17px;
+    max-width:60ch;
     color:var(--ink-soft);
-    margin:0 0 34px;
+    margin:0 0 8px;
   }
-  .hero-meta{
-    display:flex;
-    gap:32px;
-    flex-wrap:wrap;
+  .hero-cred{
     font-family:'IBM Plex Mono', monospace;
     font-size:13px;
     color:var(--mono);
   }
-  .hero-meta strong{color:var(--ink);font-weight:600;}
 
-  /* ---------- FILTER BAR ---------- */
-  nav.filters{
-    position:sticky;
-    top:0;
-    background:var(--paper);
-    z-index:10;
-    padding:18px 0;
-    border-bottom:1px solid var(--rule);
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .filter-btn{
+  /* ---------- SECTION LABELS ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .sec-label{
     font-family:'IBM Plex Mono', monospace;
     font-size:12px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    background:transparent;
-    border:1px solid var(--rule);
-    color:var(--ink-soft);
-    padding:8px 14px;
-    border-radius:999px;
-    cursor:pointer;
-    transition:all .15s ease;
-  }
-  .filter-btn:hover{border-color:var(--paddy);color:var(--paddy-deep);}
-  .filter-btn.active{
-    background:var(--ink);
-    border-color:var(--ink);
-    color:var(--paper);
-  }
-
-  /* ---------- CARDS ---------- */
-  main{padding:44px 0 100px;}
-  .card{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:28px;
-    padding:38px 0;
-    border-bottom:1px solid var(--rule);
-    align-items:start;
-  }
-  .card:last-child{border-bottom:none;}
-  .stat-block{
-    font-family:'IBM Plex Mono', monospace;
-    position:sticky;
-    top:78px;
-  }
-  .stat-num{
-    font-size:26px;
-    font-weight:600;
-    color:var(--paddy-deep);
-    line-height:1.1;
-    letter-spacing:-0.02em;
-  }
-  .card.tag-case .stat-num{color:var(--brick);}
-  .stat-label{
-    font-size:10.5px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--mono);
-    margin-top:6px;
-  }
-  .card-body{min-width:0;}
-  .card-tag{
-    display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
+    letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--paddy-deep);
-    border:1px solid var(--paddy);
-    padding:3px 9px;
-    border-radius:3px;
-    margin-bottom:14px;
-  }
-  .card.tag-case .card-tag{color:var(--brick);border-color:var(--brick);}
-  .card-title{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:26px;
-    line-height:1.18;
     margin:0 0 12px;
   }
-  .card-hook{
-    color:var(--ink-soft);
-    font-size:16px;
-    margin:0 0 16px;
-    max-width:60ch;
-  }
-  .card-excerpt{
-    font-size:15.5px;
-    color:var(--ink);
-    border-left:2px solid var(--rule);
-    padding-left:18px;
-    margin:0 0 18px;
-    max-width:62ch;
-  }
-  .card-excerpt.expanded{border-left-color:var(--paddy);}
-  .card.tag-case .card-excerpt.expanded{border-left-color:var(--brick);}
-  .card-foot{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    flex-wrap:wrap;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-  }
-  .read-more{
-    background:none;
-    border:none;
-    color:var(--paddy-deep);
-    cursor:pointer;
-    text-decoration:underline;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    padding:0;
-  }
-  .card.tag-case .read-more{color:var(--brick);}
-  .ext-link{
-    color:var(--ink-soft);
-    text-decoration:none;
-    border-bottom:1px dotted var(--mono);
-  }
-  .ext-link:hover{color:var(--ink);border-color:var(--ink);}
-  .byline-note{color:var(--mono);}
-
-  .sample-note{
-    margin-top:14px;
-    font-size:13px;
-    color:var(--brick);
-    background:rgba(139,58,47,0.07);
-    border:1px solid rgba(139,58,47,0.25);
-    padding:10px 14px;
-    border-radius:4px;
-    max-width:62ch;
+  .sec-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:28px;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
   }
 
-  /* ---------- FOOTER ---------- */
-  footer{
+  /* ---------- WHO IT'S FOR ---------- */
+  .who-text{font-size:17px;max-width:62ch;color:var(--ink);}
+
+  /* ---------- PROCESS ---------- */
+  .steps{list-style:none;margin:0;padding:0;counter-reset:step;}
+  .steps li{
+    counter-increment:step;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:16px;
+    padding:16px 0;
     border-top:1px solid var(--rule);
-    padding:40px 0 60px;
+  }
+  .steps li:first-child{border-top:none;}
+  .steps li::before{
+    content:counter(step);
     font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    font-weight:600;
+    color:var(--paddy-deep);
+    border:1px solid var(--paddy);
+    border-radius:50%;
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-title{font-weight:600;margin:0 0 4px;font-size:16px;}
+  .step-body{margin:0;color:var(--ink-soft);font-size:15.5px;max-width:56ch;}
+
+  /* ---------- PACKAGES ---------- */
+  .packages{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .pkg{
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:26px 22px;
+    background:var(--paper-deep);
+    display:flex;
+    flex-direction:column;
+  }
+  .pkg.popular{
+    border-color:var(--paddy);
+    background:#E6E7DA;
+    position:relative;
+  }
+  .pkg-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--paddy-deep);
+    padding:3px 9px;
+    border-radius:3px;
+    display:inline-block;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .pkg-name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:21px;
+    margin:0 0 6px;
+  }
+  .pkg-price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:28px;
+    font-weight:600;
+    color:var(--paddy-deep);
+    margin:0 0 4px;
+  }
+  .pkg.popular .pkg-price{color:var(--brick);}
+  .pkg-price sup{font-size:13px;font-weight:500;color:var(--mono);}
+  .pkg-turnaround{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--mono);
+    margin-bottom:18px;
+  }
+  .pkg-list{
+    list-style:none;
+    margin:0 0 16px;
+    padding:0;
+    flex-grow:1;
+  }
+  .pkg-list li{
+    font-size:14.5px;
+    padding:7px 0;
+    border-top:1px solid var(--rule);
+    padding-left:16px;
+    position:relative;
+  }
+  .pkg-list li:first-child{border-top:none;}
+  .pkg-list li::before{
+    content:"·";
+    position:absolute;left:0;
+    color:var(--paddy);
+    font-weight:700;
+  }
+  .pkg.popular .pkg-list li::before{color:var(--brick);}
+  .pkg-note{
     font-size:12.5px;
     color:var(--mono);
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:12px;
+    font-style:italic;
+    border-top:1px dashed var(--rule);
+    padding-top:12px;
+    margin-top:auto;
   }
 
-  @media (max-width:640px){
-    .card{grid-template-columns:1fr;gap:10px;}
-    .stat-block{position:static;margin-bottom:6px;}
-    header.hero{padding:56px 0 40px;}
+  /* ---------- BUNDLE ---------- */
+  .bundle-box{
+    border:1px solid var(--paddy);
+    background:var(--paper-deep);
+    border-radius:6px;
+    padding:26px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .bundle-box h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 8px;
+  }
+  .bundle-box p{margin:0;color:var(--ink-soft);font-size:15px;max-width:48ch;}
+  .bundle-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--paddy-deep);
+    border:1px solid var(--paddy);
+    padding:10px 18px;
+    border-radius:4px;
+    white-space:nowrap;
+  }
+
+  /* ---------- ADD-ONS TABLE ---------- */
+  table.addons{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.addons th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--mono);
+    padding:0 0 10px;
+    border-bottom:1px solid var(--ink);
+  }
+  table.addons td{
+    padding:12px 0;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  table.addons td.price{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--paddy-deep);
+    text-align:right;
+    white-space:nowrap;
+    font-weight:600;
+  }
+  .addons-note{font-size:12.5px;color:var(--mono);margin-top:16px;font-style:italic;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-top:1px solid var(--rule);}
+  .faq-item:last-child{border-bottom:1px solid var(--rule);}
+  .faq-q{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:18px 0;
+    font-family:'Source Serif 4', serif;
+    font-size:16.5px;
+    font-weight:600;
+    color:var(--ink);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+  .faq-q .icon{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--paddy-deep);
+    font-size:18px;
+    flex-shrink:0;
+  }
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .faq-a-inner{padding:0 0 18px;max-width:64ch;}
+  .faq-a a{color:var(--paddy-deep);border-bottom:1px dotted var(--paddy);text-decoration:none;}
+
+  /* ---------- CTA ---------- */
+  .cta-block{
+    text-align:center;
+    padding:64px 0 30px;
+  }
+  .cta-block h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(26px, 4vw, 38px);
+    margin:0 0 14px;
+  }
+  .cta-block p{color:var(--ink-soft);font-size:16px;margin:0 0 26px;}
+  .cta-btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    letter-spacing:0.04em;
+    background:var(--ink);
+    color:var(--paper);
+    padding:14px 30px;
+    border-radius:4px;
+    text-decoration:none;
+  }
+  .cta-btn:hover{background:var(--paddy-deep);}
+  .cta-email-fallback{
+    margin-top:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--mono);
+  }
+  .cta-email-fallback span{color:var(--ink);}
+  .copy-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    background:none;
+    border:1px solid var(--rule);
+    color:var(--ink-soft);
+    padding:3px 10px;
+    border-radius:3px;
+    cursor:pointer;
+    margin-left:8px;
+  }
+  .copy-btn:hover{border-color:var(--paddy);color:var(--paddy-deep);}
+  .copy-btn.copied{border-color:var(--paddy);color:var(--paddy-deep);}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:30px 0 50px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--mono);
+    text-align:center;
+  }
+
+  @media (max-width:760px){
+    .packages{grid-template-columns:1fr;}
+    .bundle-box{flex-direction:column;align-items:flex-start;}
+    table.addons{font-size:13px;}
   }
 </style>
 </head>
 <body>
 
 <div class="wrap">
-  <header class="hero">
-    <p class="eyebrow">Storytelling &amp; case studies</p>
-    <h1 class="name">Mervalyn Tomas<br><em>writes people into numbers,<br>and numbers into people.</em></h1>
-    <p class="hero-sub">I write transformation stories (real people, real turning points, real outcomes) with the structure and proof points that make them work as case studies, not just anecdotes. Below: published feature work and sample case study writing.</p>
-    <div class="hero-meta">
-      <span><strong>4</strong> pieces below</span>
-      <span><strong>Published &amp; sample</strong> work</span>
-      <span><strong>Institutional</strong> · service brand</span>
-    </div>
-  </header>
-
-  <nav class="filters" id="filters">
-    <button class="filter-btn active" data-filter="all">All work</button>
-    <button class="filter-btn" data-filter="feature">Published features</button>
-    <button class="filter-btn" data-filter="case">Case study samples</button>
+  <nav class="top">
+    <span class="brand">Mervalyn Tomas</span>
+    <a href="index.html">← View portfolio</a>
   </nav>
 
-  <main id="cards">
+  <header class="hero">
+    <p class="eyebrow">Services &amp; pricing</p>
+    <h1 class="headline">Client success stories that actually convert.</h1>
+    <p class="hero-sub">I turn your clients' real transformations into structured, credible case studies, built to earn trust and win new business, not just fill a page.</p>
+    <p class="hero-cred">Journalism-trained storyteller · 6 years professional writing experience</p>
+  </header>
 
-    <!-- CARD 1: SAMPLE CASE STUDY (led first for coaching/service-brand audiences) -->
-    <article class="card tag-case" data-cat="case">
-      <div class="stat-block">
-        <div class="stat-num">4 mos<br>to CTO</div>
-        <div class="stat-label">sample / spec piece</div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Case Study: Sample</span>
-        <h3 class="card-title">From Silent in Meetings to Chief Technology Officer</h3>
-        <p class="card-hook">A demonstration piece written to show client-facing case study structure for a coaching/service brand, built around the "before → decision → work → result" framework used in high-converting case studies.</p>
-        <p class="card-excerpt" data-full="1">“I would explain something clearly in my head, but by the time I said it out loud, people had already started talking over me... It wasn't that my English was wrong. It just didn't sound confident enough for people to trust it.” Four months of targeted coaching later, he was promoted into the role he'd been passed over for the year prior.</p>
-        <div class="sample-note">Sample / spec piece: written to demonstrate structure and voice, not a published client case study. Available on request as a template for real client work.</div>
-        <div class="card-foot">
-          <button class="read-more" data-target="1">Read full excerpt</button>
-          <a class="ext-link" href="https://docs.google.com/document/d/1ys6ixfseYEMpIxjsENnnnPXCvc22EPqg/edit?usp=sharing&ouid=108610927111982122030&rtpof=true&sd=true" target="_blank" rel="noopener">Read full sample ↗</a>
-          <span class="byline-note">Writing sample</span>
+  <section id="who">
+    <p class="sec-label">Who this is for</p>
+    <p class="who-text">For coaches, consultants, and service-based businesses who have a great client story to tell, and want it told well.</p>
+  </section>
+
+  <section id="process">
+    <p class="sec-label">How it works</p>
+    <h2 class="sec-title">The process</h2>
+    <ol class="steps">
+      <li>
+        <div>
+          <p class="step-title">Intake call</p>
+          <p class="step-body">We talk through the story, the outcome, and what you want to achieve with it.</p>
         </div>
-      </div>
-    </article>
-
-    <!-- CARD 2 -->
-    <article class="card tag-feature" data-cat="feature">
-      <div class="stat-block">
-        <div class="stat-num">₱2.3M<br>→₱7.5M</div>
-        <div class="stat-label">association income, 2019–2020</div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">DA-PhilRice Feature</span>
-        <h3 class="card-title">Rising as one above challenges</h3>
-        <p class="card-hook">How a Bicol farmers' association turned pandemic disruption and back-to-back typhoons into their biggest growth year, by supplying relief rice instead of waiting for the disruption to pass.</p>
-        <p class="card-excerpt" data-full="2">“We were making about ₱250,000 a year then. After RiceBIS, we started to make millions as we learned to communicate with institutional buyers.” Sales during pandemic relief operations alone brought in ₱3M, and grabbing that opportunity helped push the association's total income from ₱2.3M in 2019 to ₱7.5M in 2020, with assets now worth ₱13.3M.</p>
-        <div class="card-foot">
-          <button class="read-more" data-target="2">Read full excerpt</button>
-          <a class="ext-link" href="https://www.philrice.gov.ph/rising-as-one-above-challenges/" target="_blank" rel="noopener">View published piece ↗</a>
-          <span class="byline-note">Apr 2021</span>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Client interview</p>
+          <p class="step-body">I interview your client directly via video call (30-45 min, recorded with permission). This same recording becomes the source for both the written case study and, if you've chosen Full Campaign, the video clip.</p>
         </div>
-      </div>
-    </article>
-
-    <!-- CARD 3 -->
-    <article class="card tag-feature" data-cat="feature">
-      <div class="stat-block">
-        <div class="stat-num">200→300<br>cavans</div>
-        <div class="stat-label">harvest, per farmer</div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">DA-PhilRice Feature</span>
-        <h3 class="card-title">Women find new aspirations in RiceBIS</h3>
-        <p class="card-hook">Two women who spent decades farming rice for subsistence became rice processors and entrepreneurs, and found something bigger than profit along the way.</p>
-        <p class="card-excerpt" data-full="3">“Joining RiceBIS made me realize that I can do more things as an individual for my family and community. When I got married at the age of 18, I thought my life would only revolve around staying at home and taking care of my kids and my husband. But now, I learned that I could achieve more.” Processing palay into brown rice let them sell at ₱50/kg versus ₱16–19/kg through traders.</p>
-        <div class="card-foot">
-          <button class="read-more" data-target="3">Read full excerpt</button>
-          <a class="ext-link" href="https://www.philrice.gov.ph/women-find-new-aspirations-in-ricebis-2/" target="_blank" rel="noopener">View published piece ↗</a>
-          <span class="byline-note">Sep 2021</span>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">First draft</p>
+          <p class="step-body">Delivered within your package's turnaround window.</p>
         </div>
-      </div>
-    </article>
-
-    <!-- CARD 4 -->
-    <article class="card tag-feature" data-cat="feature">
-      <div class="stat-block">
-        <div class="stat-num">15 yrs<br>→ 7 mos</div>
-        <div class="stat-label">deserted farm to harvest</div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">DA-PhilRice Feature</span>
-        <h3 class="card-title">Deserted farm brings profit to mom agripreneur</h3>
-        <p class="card-hook">A pandemic layoff pushed a massage therapist and her consultant husband to revive her late father's abandoned farm, and they built a second income from it within a season.</p>
-        <p class="card-excerpt" data-full="4">A field abandoned for 15 years since her father's passing was, seven months later, teeming with vegetables ready for harvest. “We are happy that we decided to come back because in farming, we found a lot of opportunities to better our lives.” GAP certification alone earned them ₱5 more per kilogram from buyers.</p>
-        <div class="card-foot">
-          <button class="read-more" data-target="4">Read full excerpt</button>
-          <a class="ext-link" href="https://www.philrice.gov.ph/deserted-farm-brings-profit-to-mom-agripreneur-2/" target="_blank" rel="noopener">View published piece ↗</a>
-          <span class="byline-note">Dec 2022</span>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Revision round</p>
+          <p class="step-body">You review and request changes.</p>
         </div>
-      </div>
-    </article>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Final delivery</p>
+          <p class="step-body">Polished, formatted, and ready to publish.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
 
-  </main>
+  <section id="packages">
+    <p class="sec-label">Pricing</p>
+    <h2 class="sec-title">Packages</h2>
+    <div class="packages">
+
+      <div class="pkg">
+        <p class="pkg-name">Core Story</p>
+        <p class="pkg-price">$150</p>
+        <p class="pkg-turnaround">5-7 business days</p>
+        <ul class="pkg-list">
+          <li>1 client interview (30-45 min)</li>
+          <li>1 written case study (600-900 words)</li>
+          <li>1 round of revisions</li>
+        </ul>
+      </div>
+
+      <div class="pkg popular">
+        <span class="pkg-badge">Most popular</span>
+        <p class="pkg-name">Story + Social</p>
+        <p class="pkg-price">$200</p>
+        <p class="pkg-turnaround">7-9 business days</p>
+        <ul class="pkg-list">
+          <li>Everything in Core Story</li>
+          <li>1 pull-quote graphic</li>
+          <li>1 repurposed short-form social post</li>
+        </ul>
+      </div>
+
+      <div class="pkg">
+        <p class="pkg-name">Full Campaign</p>
+        <p class="pkg-price">$250<sup> / $200 audio-only</sup></p>
+        <p class="pkg-turnaround">7-9 business days</p>
+        <ul class="pkg-list">
+          <li>Everything in Story + Social</li>
+          <li>1 video clip (up to 60 sec) pulled and edited from the interview</li>
+          <li>Delivered in vertical + square formats</li>
+        </ul>
+        <p class="pkg-note">Video is sourced from the same interview call, no separate recording needed. If your client prefers audio-only, this becomes Story + Social pricing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="bundle">
+    <p class="sec-label">Volume pricing</p>
+    <div class="bundle-box">
+      <div>
+        <h3>Multiple Stories Bundle</h3>
+        <p>3+ Core Story or Story + Social packages, 10-15% off per-piece rate. A great fit for coaching cohorts, community programs, or several client wins at once.</p>
+      </div>
+      <span class="bundle-cta">Custom quote</span>
+    </div>
+  </section>
+
+  <section id="addons">
+    <p class="sec-label">Add-ons</p>
+    <h2 class="sec-title">Need something beyond the packages?</h2>
+    <table class="addons">
+      <thead>
+        <tr><th>Add-on</th><th style="text-align:right;">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Additional stakeholder interview</td><td class="price">+$40</td></tr>
+        <tr><td>Extra revision round</td><td class="price">+$25</td></tr>
+        <tr><td>Longer case study (1,200+ words)</td><td class="price">+$40</td></tr>
+        <tr><td>Additional format (e.g. one-pager PDF)</td><td class="price">+$35</td></tr>
+        <tr><td>Extra platform caption (IG, X, etc.)</td><td class="price">+$15 each</td></tr>
+        <tr><td>Extra pull-quote graphic variant</td><td class="price">+$15 each</td></tr>
+        <tr><td>Extended video clip (61 sec-3 min), from the interview</td><td class="price">+$15</td></tr>
+        <tr><td>Highlight reel (3-5 min, multiple moments)</td><td class="price">+$30</td></tr>
+        <tr><td>Tutorial-style video (up to 10 min, full production, separate recording)</td><td class="price">$50</td></tr>
+        <tr><td>Extended tutorial-style video (beyond 10 min)</td><td class="price">+$5/min</td></tr>
+        <tr><td>Rush delivery</td><td class="price">+50% of package price</td></tr>
+        <tr><td>Paid ad usage rights</td><td class="price">+$30-50</td></tr>
+      </tbody>
+    </table>
+    <p class="addons-note">Ghostwritten with no writer credit is available on request. Standard packages assume portfolio/byline use.</p>
+  </section>
+
+  <section id="faq">
+    <p class="sec-label">FAQ</p>
+    <h2 class="sec-title">Common questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q"><span>What if my client doesn't want to be interviewed live?</span><span class="icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">A written Q&amp;A exchange is possible, though live interviews produce stronger quotes and stories.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q"><span>Can I see a sample first?</span><span class="icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes, you can view my portfolio here: <a href="https://mervatomascontentcreator-crypto.github.io/casestudywriter/" target="_blank" rel="noopener">mervatomascontentcreator-crypto.github.io/casestudywriter</a></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q"><span>What if I need more revisions than included?</span><span class="icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Additional rounds are $25 each.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q"><span>What if my client doesn't want to be on camera?</span><span class="icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">No problem, we'll do an audio-only interview instead. Since video isn't possible without a camera, that project is simply billed at the Story + Social rate ($200) rather than Full Campaign.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q"><span>Do you work with non-English-speaking clients' customers?</span><span class="icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">I conduct interviews and write in English and Filipino/Tagalog. If your client is most comfortable in one of those two languages, I can work with them directly. For other languages, I'd need the interview conducted in English or Tagalog, or a translated transcript to work from.</div></div>
+    </div>
+  </section>
+
+  <div class="cta-block">
+    <h2>Ready to turn your client's story into your next case study?</h2>
+    <p>Tell me a bit about the story you want told, and I'll follow up with next steps.</p>
+    <a class="cta-btn" href="mailto:mervatomascontentcreator@gmail.com">Get in touch →</a>
+    <p class="cta-email-fallback">
+      Or email directly: <span id="emailText">mervatomascontentcreator@gmail.com</span>
+      <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+    </p>
+  </div>
 
   <footer>
-    <span>Portfolio compiled 2026</span>
-    <span>All DA-PhilRice content is public domain · used here as author's writing sample</span>
+    Mervalyn Tomas · Writing &amp; case studies for coaches and service businesses
   </footer>
 </div>
 
 <script>
-  const filters = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.card');
-  filters.forEach(btn=>{
+  document.querySelectorAll('.faq-q').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      filters.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      cards.forEach(c=>{
-        if(f==='all' || c.dataset.cat===f){
-          c.style.display='grid';
-        } else {
-          c.style.display='none';
-        }
-      });
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.icon');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+      document.querySelectorAll('.faq-a').forEach(a=>{a.style.maxHeight='0px';});
+      document.querySelectorAll('.faq-q .icon').forEach(i=>{i.textContent='+';});
+      if(!isOpen){
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '−';
+      }
     });
   });
 
-  document.querySelectorAll('.read-more').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const card = btn.closest('.card');
-      const excerpt = card.querySelector('.card-excerpt');
-      excerpt.classList.toggle('expanded');
-      btn.textContent = excerpt.classList.contains('expanded') ? 'Collapse' : 'Read full excerpt';
+  const copyBtn = document.getElementById('copyBtn');
+  if(copyBtn){
+    copyBtn.addEventListener('click', async ()=>{
+      const email = document.getElementById('emailText').textContent;
+      try{
+        await navigator.clipboard.writeText(email);
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(()=>{
+          copyBtn.textContent = 'Copy';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      }catch(err){
+        copyBtn.textContent = 'Select & copy manually';
+      }
     });
-  });
+  }
 </script>
 
 </body>
