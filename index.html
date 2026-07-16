@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mervalyn Tomas: Writing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEAE0;
+    --paper-deep:#E3DFD1;
+    --ink:#22231D;
+    --ink-soft:#524F42;
+    --rule:#C9C4B2;
+    --paddy:#4A5D23;
+    --paddy-deep:#38481A;
+    --brick:#8B3A2F;
+    --mono:#5B584A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:88px 0 56px;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--paddy-deep);
+    margin:0 0 18px;
+  }
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(40px, 6vw, 66px);
+    line-height:1.02;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  h1.name em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--paddy);
+  }
+  .hero-sub{
+    font-size:18px;
+    max-width:560px;
+    color:var(--ink-soft);
+    margin:0 0 34px;
+  }
+  .hero-meta{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--mono);
+  }
+  .hero-meta strong{color:var(--ink);font-weight:600;}
+
+  /* ---------- FILTER BAR ---------- */
+  nav.filters{
+    position:sticky;
+    top:0;
+    background:var(--paper);
+    z-index:10;
+    padding:18px 0;
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    background:transparent;
+    border:1px solid var(--rule);
+    color:var(--ink-soft);
+    padding:8px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--paddy);color:var(--paddy-deep);}
+  .filter-btn.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+
+  /* ---------- CARDS ---------- */
+  main{padding:44px 0 100px;}
+  .card{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:28px;
+    padding:38px 0;
+    border-bottom:1px solid var(--rule);
+    align-items:start;
+  }
+  .card:last-child{border-bottom:none;}
+  .stat-block{
+    font-family:'IBM Plex Mono', monospace;
+    position:sticky;
+    top:78px;
+  }
+  .stat-num{
+    font-size:26px;
+    font-weight:600;
+    color:var(--paddy-deep);
+    line-height:1.1;
+    letter-spacing:-0.02em;
+  }
+  .card.tag-case .stat-num{color:var(--brick);}
+  .stat-label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--mono);
+    margin-top:6px;
+  }
+  .card-body{min-width:0;}
+  .card-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--paddy-deep);
+    border:1px solid var(--paddy);
+    padding:3px 9px;
+    border-radius:3px;
+    margin-bottom:14px;
+  }
+  .card.tag-case .card-tag{color:var(--brick);border-color:var(--brick);}
+  .card-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:26px;
+    line-height:1.18;
+    margin:0 0 12px;
+  }
+  .card-hook{
+    color:var(--ink-soft);
+    font-size:16px;
+    margin:0 0 16px;
+    max-width:60ch;
+  }
+  .card-excerpt{
+    font-size:15.5px;
+    color:var(--ink);
+    border-left:2px solid var(--rule);
+    padding-left:18px;
+    margin:0 0 18px;
+    max-width:62ch;
+  }
+  .card-excerpt.expanded{border-left-color:var(--paddy);}
+  .card.tag-case .card-excerpt.expanded{border-left-color:var(--brick);}
+  .card-foot{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+  .read-more{
+    background:none;
+    border:none;
+    color:var(--paddy-deep);
+    cursor:pointer;
+    text-decoration:underline;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:0;
+  }
+  .card.tag-case .read-more{color:var(--brick);}
+  .ext-link{
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px dotted var(--mono);
+  }
+  .ext-link:hover{color:var(--ink);border-color:var(--ink);}
+  .byline-note{color:var(--mono);}
+
+  .sample-note{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--brick);
+    background:rgba(139,58,47,0.07);
+    border:1px solid rgba(139,58,47,0.25);
+    padding:10px 14px;
+    border-radius:4px;
+    max-width:62ch;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--rule);
+    padding:40px 0 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--mono);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  @media (max-width:640px){
+    .card{grid-template-columns:1fr;gap:10px;}
+    .stat-block{position:static;margin-bottom:6px;}
+    header.hero{padding:56px 0 40px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Storytelling &amp; case studies</p>
+    <h1 class="name">Mervalyn Tomas<br><em>writes people into numbers,<br>and numbers into people.</em></h1>
+    <p class="hero-sub">I write transformation stories (real people, real turning points, real outcomes) with the structure and proof points that make them work as case studies, not just anecdotes. Below: published feature work and sample case study writing.</p>
+    <div class="hero-meta">
+      <span><strong>4</strong> pieces below</span>
+      <span><strong>Published &amp; sample</strong> work</span>
+      <span><strong>Institutional</strong> · service brand</span>
+    </div>
+  </header>
+
+  <nav class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All work</button>
+    <button class="filter-btn" data-filter="feature">Published features</button>
+    <button class="filter-btn" data-filter="case">Case study samples</button>
+  </nav>
+
+  <main id="cards">
+
+    <!-- CARD 1: SAMPLE CASE STUDY (led first for coaching/service-brand audiences) -->
+    <article class="card tag-case" data-cat="case">
+      <div class="stat-block">
+        <div class="stat-num">4 mos<br>to CTO</div>
+        <div class="stat-label">sample / spec piece</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Case Study: Sample</span>
+        <h3 class="card-title">From Silent in Meetings to Chief Technology Officer</h3>
+        <p class="card-hook">A demonstration piece written to show client-facing case study structure for a coaching/service brand, built around the "before → decision → work → result" framework used in high-converting case studies.</p>
+        <p class="card-excerpt" data-full="1">“I would explain something clearly in my head, but by the time I said it out loud, people had already started talking over me... It wasn't that my English was wrong. It just didn't sound confident enough for people to trust it.” Four months of targeted coaching later, he was promoted into the role he'd been passed over for the year prior.</p>
+        <div class="sample-note">Sample / spec piece: written to demonstrate structure and voice, not a published client case study. Available on request as a template for real client work.</div>
+        <div class="card-foot">
+          <button class="read-more" data-target="1">Read full excerpt</button>
+          <a class="ext-link" href="https://docs.google.com/document/d/1ys6ixfseYEMpIxjsENnnnPXCvc22EPqg/edit?usp=sharing&ouid=108610927111982122030&rtpof=true&sd=true" target="_blank" rel="noopener">Read full sample ↗</a>
+          <span class="byline-note">Writing sample</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card tag-feature" data-cat="feature">
+      <div class="stat-block">
+        <div class="stat-num">₱2.3M<br>→₱7.5M</div>
+        <div class="stat-label">association income, 2019–2020</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">DA-PhilRice Feature</span>
+        <h3 class="card-title">Rising as one above challenges</h3>
+        <p class="card-hook">How a Bicol farmers' association turned pandemic disruption and back-to-back typhoons into their biggest growth year, by supplying relief rice instead of waiting for the disruption to pass.</p>
+        <p class="card-excerpt" data-full="2">“We were making about ₱250,000 a year then. After RiceBIS, we started to make millions as we learned to communicate with institutional buyers.” Sales during pandemic relief operations alone brought in ₱3M, and grabbing that opportunity helped push the association's total income from ₱2.3M in 2019 to ₱7.5M in 2020, with assets now worth ₱13.3M.</p>
+        <div class="card-foot">
+          <button class="read-more" data-target="2">Read full excerpt</button>
+          <a class="ext-link" href="https://www.philrice.gov.ph/rising-as-one-above-challenges/" target="_blank" rel="noopener">View published piece ↗</a>
+          <span class="byline-note">Apr 2021</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card tag-feature" data-cat="feature">
+      <div class="stat-block">
+        <div class="stat-num">200→300<br>cavans</div>
+        <div class="stat-label">harvest, per farmer</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">DA-PhilRice Feature</span>
+        <h3 class="card-title">Women find new aspirations in RiceBIS</h3>
+        <p class="card-hook">Two women who spent decades farming rice for subsistence became rice processors and entrepreneurs, and found something bigger than profit along the way.</p>
+        <p class="card-excerpt" data-full="3">“Joining RiceBIS made me realize that I can do more things as an individual for my family and community. When I got married at the age of 18, I thought my life would only revolve around staying at home and taking care of my kids and my husband. But now, I learned that I could achieve more.” Processing palay into brown rice let them sell at ₱50/kg versus ₱16–19/kg through traders.</p>
+        <div class="card-foot">
+          <button class="read-more" data-target="3">Read full excerpt</button>
+          <a class="ext-link" href="https://www.philrice.gov.ph/women-find-new-aspirations-in-ricebis-2/" target="_blank" rel="noopener">View published piece ↗</a>
+          <span class="byline-note">Sep 2021</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card tag-feature" data-cat="feature">
+      <div class="stat-block">
+        <div class="stat-num">15 yrs<br>→ 7 mos</div>
+        <div class="stat-label">deserted farm to harvest</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">DA-PhilRice Feature</span>
+        <h3 class="card-title">Deserted farm brings profit to mom agripreneur</h3>
+        <p class="card-hook">A pandemic layoff pushed a massage therapist and her consultant husband to revive her late father's abandoned farm, and they built a second income from it within a season.</p>
+        <p class="card-excerpt" data-full="4">A field abandoned for 15 years since her father's passing was, seven months later, teeming with vegetables ready for harvest. “We are happy that we decided to come back because in farming, we found a lot of opportunities to better our lives.” GAP certification alone earned them ₱5 more per kilogram from buyers.</p>
+        <div class="card-foot">
+          <button class="read-more" data-target="4">Read full excerpt</button>
+          <a class="ext-link" href="https://www.philrice.gov.ph/deserted-farm-brings-profit-to-mom-agripreneur-2/" target="_blank" rel="noopener">View published piece ↗</a>
+          <span class="byline-note">Dec 2022</span>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <span>Portfolio compiled 2026</span>
+    <span>All DA-PhilRice content is public domain · used here as author's writing sample</span>
+  </footer>
+</div>
+
+<script>
+  const filters = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  filters.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      filters.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c=>{
+        if(f==='all' || c.dataset.cat===f){
+          c.style.display='grid';
+        } else {
+          c.style.display='none';
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('.read-more').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const card = btn.closest('.card');
+      const excerpt = card.querySelector('.card-excerpt');
+      excerpt.classList.toggle('expanded');
+      btn.textContent = excerpt.classList.contains('expanded') ? 'Collapse' : 'Read full excerpt';
+    });
+  });
+</script>
+
+</body>
+</html>
